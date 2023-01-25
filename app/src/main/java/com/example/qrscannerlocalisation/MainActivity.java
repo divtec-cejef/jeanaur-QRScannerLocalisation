@@ -2,6 +2,7 @@ package com.example.qrscannerlocalisation;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.util.Arrays;
 
+
 public class MainActivity extends AppCompatActivity {
 
     // Création des variables
@@ -20,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn_scan;
 
+    /**
+     * Création de l'activité
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Méthode appelé lorsque l'on clique sur le bouton "Scan Me"
+     * Méthode appelée lorsque l'on clique sur le bouton "Scan Me"
      */
     private void scanCode() {
         // S'occupe de scanner notre code QR

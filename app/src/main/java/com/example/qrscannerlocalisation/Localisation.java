@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +13,7 @@ import android.telephony.SmsManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,7 +23,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Localisation extends AppCompatActivity implements OnMapReadyCallback {
 
-    // Si il doit recevoir une position venant d'un qrcode
+    // S'il doit recevoir une position venant d'un qrcode
     boolean getPositionQR = false;
     // Position venant du QR code
     double latitudeQR = 0;
@@ -58,7 +60,7 @@ public class Localisation extends AppCompatActivity implements OnMapReadyCallbac
         latitudeQR = intent.getDoubleExtra("latitudeQR", 0);
         longitudeQR = intent.getDoubleExtra("longitudeQR", 0);
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        // Obtenir le SupportMapFragment et recevoir une notification lorsque la carte est prête à être utilisée.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         assert mapFragment != null;
@@ -162,10 +164,12 @@ public class Localisation extends AppCompatActivity implements OnMapReadyCallbac
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        // Création de la map
         mMap = googleMap;
 
         System.out.println("onMapReady");
 
+        // Vérification si on a toutes les autorisations, création marqueur sur la carte.
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
